@@ -1,8 +1,7 @@
-
 import 'package:uni_storage/uni_storage.dart';
 
-class UniStorageConfigs {
-  UniStorageConfigs._();
+class UniStorage {
+  UniStorage._();
   static Spaces? uniStorge;
 
   static init({
@@ -16,4 +15,5 @@ class UniStorageConfigs {
       secretKey: secretKey,
     );
   }
+
 }

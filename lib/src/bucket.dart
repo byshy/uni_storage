@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
@@ -169,10 +171,28 @@ class Bucket extends Client {
   }
 
   /// Get File from Bucket. ----------------------------------------------------------------
-  Future<Uint8List> getFile(String folderName, String fileName) async {
-    String uriStr = '$endpointUrl/$folderName/$fileName';
-    http.Request request = http.Request('GET', Uri.parse(uriStr));
+  Future<File?> getFile({required String url, required Directory dir}) async {
+    // String uriStr = '$endpointUrl/$folderName/$fileName';
+    http.Request request = http.Request('GET', Uri.parse(url));
     signRequest(request);
+    log('Req---->> ${request}');
+    log('Req---->> ${request.headers}');
+    http.StreamedResponse response = await httpClient.send(request);
+    var streamRes = await http.Response.fromStream(response);
+    Uint8List bytes = streamRes.bodyBytes;
+    final path = dir.path;
+    final file = File('$path/${url.split('/').last}');
+    return file.writeAsBytes(bytes);
+  }
+
+  /// Get Image from Bucket. ----------------------------------------------------------------
+  Future<Uint8List?> getImage({
+    required String url,
+  }) async {
+    http.Request request = http.Request('GET', Uri.parse(url));
+    signRequest(request);
+    log('Req---->> ${request}');
+    log('Req---->> ${request.headers}');
     http.StreamedResponse response = await httpClient.send(request);
     var streamRes = await http.Response.fromStream(response);
     return streamRes.bodyBytes;

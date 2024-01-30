@@ -18,10 +18,15 @@ class ClientException implements Exception {
 }
 
 class Client {
+  /// The region to connect to.
   final String? region;
+  /// The access key to use for authentication.
   final String? accessKey;
+  /// The secret key to use for authentication.
   final String? secretKey;
+  /// The service to connect to Like [s3].
   final String service;
+  /// The endpoint URL to connect to.
   final String endpointUrl;
 
   @protected
