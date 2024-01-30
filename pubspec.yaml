@@ -1,0 +1,17 @@
+name: uni_storage
+description: Client library to interact with the DigitalOcean Spaces API. Same API as Amazon AWS S3.
+version: 0.0.1
+author: Unicode 
+
+environment:
+  sdk: '>=2.12.0-29.10.beta <3.0.0'
+
+dependencies:
+  meta: ^1.3.0
+  crypto: ^3.0.3
+  http: ^1.1.0
+  xml: ^5.0.2
+
+dev_dependencies:
+  test: ^1.0.0
+  ini: ^2.1.0-beta
