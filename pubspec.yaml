@@ -1,17 +1,20 @@
 name: uni_storage
 description: Client library to interact with the DigitalOcean Spaces API. Same API as Amazon AWS S3.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/abdallah128128/uni_storage
 author: Unicode 
 
+# environment:
+#   sdk: '>=2.12.0-29.10.beta <3.0.0'
 environment:
-  sdk: '>=2.12.0-29.10.beta <3.0.0'
+  sdk: ">=2.18.0 <4.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
-  meta: ^1.3.0
+  # meta: ^1.15.0
   crypto: ^3.0.3
-  http: ^1.1.0
-  xml: ^5.0.2
+  http: ^1.2.0
+  xml: ^6.5.0
   
   flutter:
     sdk: flutter

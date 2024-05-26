@@ -6,3 +6,6 @@
 
 ## 0.0.3
 - Add UniStorageImage
+
+## 0.0.4
+- Updated Dependencies
