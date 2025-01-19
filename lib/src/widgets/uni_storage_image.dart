@@ -5,7 +5,7 @@ import 'package:uni_storage/src/uni_storage_configs.dart';
 
 typedef UniImageBuilder = Widget Function(BuildContext context, ImageProvider image);
 
-class UniStorgeImage extends StatefulWidget {
+class UniStorageImage extends StatefulWidget {
   /// Url For Image it be should Like this:
   /// https://$[bucketName].$[region].digitaloceanspaces.com/$[FolderName]/$[FileName]
   final String imageUrl;
@@ -19,7 +19,7 @@ class UniStorgeImage extends StatefulWidget {
   /// Widget to show Error Widget
   final Widget? errorWidget;
 
-  const UniStorgeImage({
+  const UniStorageImage({
     Key? key,
     required this.imageUrl,
     this.loadingWidget,
@@ -28,10 +28,10 @@ class UniStorgeImage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<UniStorgeImage> createState() => _UniStorgeImageState();
+  State<UniStorageImage> createState() => _UniStorageImageState();
 }
 
-class _UniStorgeImageState extends State<UniStorgeImage> {
+class _UniStorageImageState extends State<UniStorageImage> {
   String get bucketName => widget.imageUrl.split('https://')[1].split('.')[0];
   @override
   Widget build(BuildContext context) {

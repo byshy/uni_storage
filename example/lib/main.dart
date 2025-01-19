@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                 },
                 child: const Text('Get Image'),
               ),
-              UniStorgeImage(
+              UniStorageImage(
                 imageUrl: 'https://$bucketName.$region.digitaloceanspaces.com/$folderName/$fileName',
                 imageBuilder: (context, im) {
                   return Container(
